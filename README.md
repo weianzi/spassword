@@ -59,6 +59,11 @@ seajs.use("spassword", function(spassword){
 
 指定位数的密码输入完成时，触发 `complete` 事件。
 
+
+### incomplete
+
+指定位数的密码输入还没完成时，触发 `incomplete` 事件。
+
 ### focus
 
 密码控件活动焦点时触发 `focus` 事件。

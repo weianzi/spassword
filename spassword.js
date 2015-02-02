@@ -36,6 +36,8 @@ spassword.prototype = {
     this._element.addClass("spassword").on("keyup input paste", function(){
 
       var len = ME._element.val().length;
+      var bCompleted = false;
+      ME._event.trigger("incomplete",'');
 
       points.each(function(index){
         $(this).css({
@@ -47,6 +49,12 @@ spassword.prototype = {
 
       if(len === ME._length){
         ME._event.trigger("complete", val);
+        bCompleted = true;
+      } else {
+        if (bCompleted) {
+          bCompleted = false;
+          ME._event.trigger("incomplete",val);
+        }
       }
 
     }).on("focus", function(){
